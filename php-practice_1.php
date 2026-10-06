@@ -100,7 +100,7 @@ foreach ($kanto as $ken => $si) {
 
 // Q10 関数-1
 function yobi($name){
-    echo $name.'さん、こんにちは。'."\n";
+    return $name.'さん、こんにちは。'."\n";
 }
 
 echo yobi('田中');
@@ -109,7 +109,7 @@ echo yobi("佐藤");
 // Q11 関数-2
 function calcTaxInPrice ($price){
     $taxInPrice=$price*1.1;
-    echo "$price".'円の商品の税込価格は'."$taxInPrice".'円です。';
+    return $price.'円の商品の税込価格は'."$taxInPrice".'円です。';
 }
 
 echo calcTaxInPrice(1000);
@@ -117,9 +117,9 @@ echo calcTaxInPrice(1000);
 // Q12 関数とif文
 function distinguishNum($num){
     if($num%2==0){
-        echo "$num".'は偶数です。'."\n";
+        return  $num.'は偶数です。'."\n";
     }else{
-        echo "$num".'は奇数です。'."\n";
+        return "$num".'は奇数です。'."\n";
     }
 }
 echo distinguishNum(0);
@@ -131,19 +131,19 @@ function evaluateGrade($score){
     switch($score){
         case 'A':
         case 'B':    
-        echo '合格です。'."\n";
+        return '合格です。'."\n";
         break;
 
     case 'C':
-        echo '合格ですが追加課題があります。'."\n";
+        return '合格ですが追加課題があります。'."\n";
         break;
 
     case 'D':
-        echo '不合格です。'."\n";
+        return '不合格です。'."\n";
         break;
 
     default:
-        echo '判定不明です。講師に問い合わせてください。'."\n";
+        return '判定不明です。講師に問い合わせてください。'."\n";
         break;
     }
 }
