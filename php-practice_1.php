@@ -15,19 +15,19 @@ echo $num;
 // Q3 日付操作
 date_default_timezone_set('Asia/Tokyo');
 
-$ima = [date("Y-"),date("m"),date("d"),date("H"),date("i"),date("s")];
-var_dump($ima);
+$now = [date("Y-"),date("m"),date("d"),date("H"),date("i"),date("s")];
+var_dump($now);
 
-echo "現在時刻は、".$ima[0]."年".$ima[1].'月'.$ima[2].'日'.$ima[3].'時'.$ima[4].'分'.$ima[5].'秒です。';
+echo "現在時刻は、".$now[0]."年".$now[1].'月'.$now[2].'日'.$now[3].'時'.$now[4].'分'.$now[5].'秒です。';
 
 // 👇
 
 date_default_timezone_set('Asia/Tokyo');
 
-$ima = date("Y年m月d日 H時i分s秒");
+$now = date("Y年m月d日 H時i分s秒");
 // Y-m-d H:i👇
 
-echo "現在時刻は、".$ima."です。";
+echo "現在時刻は、".$now."です。";
 
 // Q4 条件分岐-1 if文
 $device = 'mac';
@@ -103,8 +103,8 @@ function yobi($name){
     echo $name.'さん、こんにちは。'."\n";
 }
 
-yobi('田中');
-yobi("佐藤");
+echo yobi('田中');
+echo yobi("佐藤");
 
 // Q11 関数-2
 function calcTaxInPrice ($price){
@@ -112,7 +112,7 @@ function calcTaxInPrice ($price){
     echo "$price".'円の商品の税込価格は'."$taxInPrice".'円です。';
 }
 
-calcTaxInPrice(1000);
+echo calcTaxInPrice(1000);
 
 // Q12 関数とif文
 function distinguishNum($num){
@@ -122,9 +122,9 @@ function distinguishNum($num){
         echo "$num".'は奇数です。'."\n";
     }
 }
-distinguishNum(0);
-distinguishNum(1);
-distinguishNum(2);
+echo distinguishNum(0);
+echo distinguishNum(1);
+echo istinguishNum(2);
 
 // Q13 関数とswitch文
 function evaluateGrade($score){
@@ -148,11 +148,11 @@ function evaluateGrade($score){
     }
 }
 
-evaluateGrade('A');
-evaluateGrade('B');
-evaluateGrade('C');
-evaluateGrade('D');
-evaluateGrade(1);
-evaluateGrade('ああああ');
+echo evaluateGrade('A');
+echo evaluateGrade('B');
+echo evaluateGrade('C');
+echo evaluateGrade('D');
+echo evaluateGrade(1);
+echo evaluateGrade('ああああ');
 
 ?>
