@@ -16,16 +16,16 @@ echo $num;
 date_default_timezone_set('Asia/Tokyo');
 
 $now = [date("Y-"),date("m"),date("d"),date("H"),date("i"),date("s")];
-var_dump($now);
+var_dump($ima);
 
 echo "現在時刻は、".$now[0]."年".$now[1].'月'.$now[2].'日'.$now[3].'時'.$now[4].'分'.$now[5].'秒です。';
 
-// 👇
+// 👇こっちが正解
 
 date_default_timezone_set('Asia/Tokyo');
 
 $now = date("Y年m月d日 H時i分s秒");
-// Y-m-d H:i👇
+// Y-m-d H:i:s 
 
 echo "現在時刻は、".$now."です。";
 
@@ -124,7 +124,7 @@ function distinguishNum($num){
 }
 echo distinguishNum(0);
 echo distinguishNum(1);
-echo istinguishNum(2);
+echo distinguishNum(2);
 
 // Q13 関数とswitch文
 function evaluateGrade($score){
@@ -154,5 +154,5 @@ echo evaluateGrade('C');
 echo evaluateGrade('D');
 echo evaluateGrade(1);
 echo evaluateGrade('ああああ');
-
+// 課題では二つですが、心配で全パターンやりました
 ?>
