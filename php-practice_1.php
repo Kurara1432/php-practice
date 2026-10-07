@@ -1,7 +1,9 @@
 <?php
 // Q1 変数と文字列
 $name="石倉";
-echo '私の名前は「' .$name. '」です。';
+echo '私の名前は「' . $name . '」です。';
+
+// 変数「name」に自分の文字を入れて、それを結合演算し、echoで表示
 
 // Q2 四則演算
 $num=5*4;
@@ -12,28 +14,21 @@ echo " \n";
 $num=$num/2;
 echo $num;
 
+// 変数「num」に5×4の値を入れ、echoで表示、その後、先ほどのnumに入っていた値を、2で割った数をそのままnumに代入
+
 // Q3 日付操作
-date_default_timezone_set('Asia/Tokyo');
-
-$now = [date("Y-"),date("m"),date("d"),date("H"),date("i"),date("s")];
-var_dump($ima);
-
-echo "現在時刻は、".$now[0]."年".$now[1].'月'.$now[2].'日'.$now[3].'時'.$now[4].'分'.$now[5].'秒です。';
-
-// 👇こっちが正解
-
 date_default_timezone_set('Asia/Tokyo');
 
 $now = date("Y年m月d日 H時i分s秒");
 // Y-m-d H:i:s 
 
-echo "現在時刻は、".$now."です。";
+echo "現在時刻は、". $now ."です。";
 
 // Q4 条件分岐-1 if文
 $device = 'mac';
 
 if($device === "windows"|| $device === "mac"){
-    echo '使用OSは、'.$device.'です。';
+    echo '使用OSは、'. $device .'です。';
 }else{
     echo 'どちらでもありません。';
 }
@@ -74,14 +69,15 @@ $kanto["石川県"]="金沢市";
 
 $seikai=["茨城県" => "水戸市","群馬県" => "前橋市","埼玉県" => "さいたま市","栃木県" => "宇都宮市","千葉県" => "千葉市","東京都" => "新宿区","神奈川県" => "横浜市"];
 
-foreach ($kanto as $kan => $kadai) {    if($kanto==$seikai){
-    echo "$kan"."の県庁所在地は、"."$kadai"."です。"."\n";
+foreach ($kanto as $ken => $si) {
+    if (array_key_exists($ken, $seikai)) {
+        echo $ken . 'の県庁所在地は、' . $si . 'です。' . "\n";
     }else{
-        echo "$kan"."の県庁所在地は、"."$kadai"."です。"."\n";
+        echo $ken . 'は関東地方ではありません。'."\n";
     }
 }
 
-// 👇
+// 👇in_arrayを使った場合も追記してみました。
 
 $kanto=["茨城県" => "水戸市","群馬県" => "前橋市","埼玉県" => "さいたま市","栃木県" => "宇都宮市","千葉県" => "千葉市","東京都" => "新宿区","神奈川県" => "横浜市"];
 
@@ -91,8 +87,8 @@ $kanto["石川県"]="金沢市";
 $seikai=["茨城県" => "水戸市","群馬県" => "前橋市","埼玉県" => "さいたま市","栃木県" => "宇都宮市","千葉県" => "千葉市","東京都" => "新宿区","神奈川県" => "横浜市"];
 
 foreach ($kanto as $ken => $si) {
-    if (array_key_exists($ken, $seikai)) {
-        echo $ken . 'の県庁所在地は、' . $si . 'です。' . "\n";
+    if (in_array($si, $seikai)) {
+        echo $ken . 'の県庁所在地は、' . $si . "です。\n";
     }else{
         echo $ken . 'は関東地方ではありません。'."\n";
     }
@@ -100,7 +96,7 @@ foreach ($kanto as $ken => $si) {
 
 // Q10 関数-1
 function yobi($name){
-    return $name.'さん、こんにちは。'."\n";
+    return $name . 'さん、こんにちは。' . "\n";
 }
 
 echo yobi('田中');
@@ -117,9 +113,9 @@ echo calcTaxInPrice(1000);
 // Q12 関数とif文
 function distinguishNum($num){
     if($num%2==0){
-        return  $num.'は偶数です。'."\n";
+        return  $num .'は偶数です。'."\n";
     }else{
-        return "$num".'は奇数です。'."\n";
+        return  $num .'は奇数です。'."\n";
     }
 }
 echo distinguishNum(0);
