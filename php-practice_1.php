@@ -1,41 +1,205 @@
 <?php
 // Q1 変数と文字列
+$name="石倉";
+echo '私の名前は「' . $name . '」です。';
 
+// 変数「name」に自分の文字を入れて、それを結合演算し、echoで表示
 
 // Q2 四則演算
+$num = 5 * 4 ;
+echo $num . "\n";
 
+$num = $num / 2 . "\n";
+echo $num;
+
+// 変数「num」に5×4の値を入れ、echoで表示、その後、先ほどのnumに入っていた値を、2で割った数をそのままnumに代入
 
 // Q3 日付操作
+date_default_timezone_set('Asia/Tokyo');
 
+$now = date("Y年m月d日 H時i分s秒");
+// Y(年)m（月）d（日） H（時）i（分）s（秒） 
+
+echo "現在時刻は、" . $now . "です。";
 
 // Q4 条件分岐-1 if文
+$device = 'mac';
+
+if($device === "windows" || $device === "mac"){
+    echo '使用OSは、'. $device .'です。';
+}else{
+    echo 'どちらでもありません。';
+}
 
 
 // Q5 条件分岐-2 三項演算子
+$age = 17;
+$agecheck = ($age >= 18) ? '成人です。' : '未成年です。';
 
+echo $agecheck;
 
 // Q6 配列
+$kanto = [
+    "茨城県",
+    "群馬県",
+    "埼玉県",
+    "栃木県",
+    "千葉県",
+    "東京都",
+    "神奈川県"
+];
 
+echo "$kanto[3]と$kanto[4]は関東地方の都道府県です。";
 
 // Q7 連想配列-1
+$kanto=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
 
+foreach ($kanto as $prefecture => $city) {
+    echo "$city" . "\n";
+}
 
 // Q8 連想配列-2
+$kanto=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
 
+foreach ($kanto as $prefecture => $city) {
+    if($prefecture === "埼玉県"){
+    echo "$prefecture" . "の県庁所在地は、" . "$city" . "です。";
+    }
+}
 
 // Q9 連想配列-3
+$kanto=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
 
+$kanto["北海道"]="札幌市";
+$kanto["石川県"]="金沢市";
+
+$corect=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
+
+foreach ($kanto as $prefecture => $city) {
+    if (array_key_exists($prefecture, $corect)) {
+        echo $prefecture . 'の県庁所在地は、' . $city . 'です。' . "\n";
+    }else{
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
+    }
+}
+
+// 👇in_arrayを使った場合も追記してみました。
+
+$kanto=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
+
+$kanto["北海道"] = "札幌市";
+$kanto["石川県"] = "金沢市";
+
+$corect=[
+    "茨城県" => "水戸市",
+    "群馬県" => "前橋市",
+    "埼玉県" => "さいたま市",
+    "栃木県" => "宇都宮市",
+    "千葉県" => "千葉市",
+    "東京都" => "新宿区",
+    "神奈川県" => "横浜市"
+];
+
+foreach ($kanto as $prefecture => $city) {
+    if (in_array($city , $corect)) {
+        echo $prefecture . 'の県庁所在地は、' . $city . 'です。' . "\n";
+    }else{
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
+    }
+}
 
 // Q10 関数-1
+function callname($name){
+    return $name . 'さん、こんにちは。' . "\n";
+}
 
+echo callname('田中');
+echo callname("佐藤");
 
 // Q11 関数-2
+function calcTaxInPrice ($price){
+    $taxInPrice=$price * 1.1;
+    return $price . '円の商品の税込価格は' . "$taxInPrice" . '円です。';
+}
 
+echo calcTaxInPrice(1000);
 
 // Q12 関数とif文
-
+function distinguishNum($num){
+    if($num%2 === 0){
+        return  $num . 'は偶数です。' . "\n";
+    }else{
+        return  $num . 'は奇数です。' . "\n";
+    }
+}
+echo distinguishNum(0);
+echo distinguishNum(1);
+echo distinguishNum(2);
 
 // Q13 関数とswitch文
+function evaluateGrade($score){
+    switch($score){
+        case 'A':
+        case 'B':    
+        return '合格です。' . "\n";
+        break;
+    case 'C':
+        return '合格ですが追加課題があります。' . "\n";
+        break;
+    case 'D':
+        return '不合格です。' . "\n";
+        break;
+    default:
+        return '判定不明です。講師に問い合わせてください。' . "\n";
+        break;
+    }
+}
 
-
+echo evaluateGrade('A');
+echo evaluateGrade('B');
+echo evaluateGrade('C');
+echo evaluateGrade('D');
+echo evaluateGrade(1);
+echo evaluateGrade('ああああ');
+// 課題では二つですが、心配で全パターンやりました
 ?>
