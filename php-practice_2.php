@@ -107,6 +107,11 @@ $onemonth -> modify("-1 month");
 
 echo $onemonth->format('Y-m-d');
 
+// 👇変更後
+$oneMonth = new DateTime();
+
+echo $oneMonth -> modify('-1 month') -> format('Y-m-d');
+
 //問題2
 $past = new DateTime("1992-4-25");
 $today = new DateTime('today');
@@ -114,4 +119,10 @@ $today = new DateTime('today');
 $diff = $past->diff($today);
 
 echo "あの日から" . $diff -> days . "日経過しました。";
+
+// 👇変更後
+$past = new DateTime("1992-4-25");
+$today = new DateTime('today');
+
+echo "あの日から" . $past->diff($today)->days . "日経過しました。";
 ?>
